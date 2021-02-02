@@ -1,0 +1,20 @@
+.container {
+    max-width: 100%;
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.footer__inner {
+    margin-top: 60px;
+    border-top: 1px solid #B6C1C2;
+}
+
+.footer__callText {
+    font-family: 'prompt', sans-serif;
+    color: #96B5BB;
+    letter-spacing: 6px;
+}
+
+.footer__logoSocial {
+    margin-right: 32px;
+}
