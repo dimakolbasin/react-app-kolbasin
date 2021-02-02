@@ -15,7 +15,7 @@
     margin-left: 44px;
 }
 
-.staff__trash-img {
+.staff__trashImg {
     width: 50%;
 }
 
@@ -67,7 +67,7 @@
     margin-right: 10px;
 }
 
-.staff__btn-add:hover {
+.staff__btnAdd:hover {
     background: #89a0a5;
 }
 
