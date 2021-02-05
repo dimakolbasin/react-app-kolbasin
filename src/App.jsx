@@ -6,15 +6,25 @@ import Main from "./components/main/main.component";
 import Footer from "./components/footer/footer.component";
 
 
-function App() {
-  return (
+class App extends React.Component {
+
+    state = {
+        counter: 0
+    }
+
+    updateData = (value) => {
+        this.setState({ counter: value })
+    }
+
+  render() {
+        return (
     <div>
-      <Header></Header>
+      <Header counter={this.state.counter}></Header>
       <Navigation></Navigation>
-      <Main></Main>
+      <Main updateData={this.updateData}></Main>
       <Footer></Footer>
     </div>
-  );
+  )}
 }
 
 export default App;

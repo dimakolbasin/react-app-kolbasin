@@ -11,74 +11,14 @@ function getProducts() {
     })
 }
 
-// const totalPriceCart = new Map();
-const listProductsInCart = new Map();
-
-const productsWithDiscount = ['IPHONE XR 512GB', 'IPHONE XR 256GB', 'IPHONE XR 128GB'];
-
-const newDiscount = (discount) => {
-    return (price) => {
-        return price - price * discount;
-    };
-};
-
-
-const transformPriceByDiscount = (product) => {
-    return {
-        ...product,
-        price: (newDiscount(0.5)(product.price)) // add discount 50%
-    };
-}
-
-
-function getCatalogWithDiscount(generalCatalog, productsWithDiscount) {
-
-    return generalCatalog.map((product) => {
-        if(productsWithDiscount.includes(product.name)){
-            return transformPriceByDiscount(product);
-        } else {
-            return product;
-        }
-
-    })
-}
-
-
-/**/
-
-
-const addToCart = (index) => {
-
-    const catalog = getCatalogWithDiscount(products, productsWithDiscount);
-    /*const product = catalog[index];*/
-
-    if (listProductsInCart.has(index) === true) {
-        let productFromCart = listProductsInCart.get(index)
-        ++productFromCart.count;
-        productFromCart.totalPrice = productFromCart.count * productFromCart.price;
-        listProductsInCart.set(index, productFromCart);
-
-
-    } else {
-        const product = catalog[index];
-        /*listProductsInCart.price = priceItem;*/
-        ++product.count;
-        product.totalPrice = product.count * product.price;
-        listProductsInCart.set(index, product);
-
-
-    }
-
-    console.log(listProductsInCart)
-}
-
-
 
 class Main extends React.Component {
     state = {
         productList: [],
-        loading: true
+        counter: 0
     }
+
+
 
 async componentDidMount() {
        const productList = await getProducts()
@@ -109,10 +49,10 @@ async componentDidMount() {
                                                 <h4 className={style.staff__title}>${product.name}</h4>
                                                 <h3 className={style.staff__price}>${product.price}</h3>
                                                 <div>
-                                                    <button className={style.staff__btnAdd} onClick={addToCart(`${product.id}`)}>
+                                                    <button className={style.staff__btnAdd} onClick = {() => this.addToCart(`${product.id}`)}>
                                                         <img className={style.staff__trashImg} src="../../assets/img/icon/bascket1.png" alt=""/>
                                                     </button>
-                                                    <button className={style.staff__btnAdd}><img className={style.staff__trashImg}
+                                                    <button className={style.staff__btnAdd} onClick = {() => this.deleteToCart(`${product.id}`)}><img className={style.staff__trashImg}
                                                                                                  src="../../assets/img/icon/bascket2.png" alt=""/></button>
                                                 </div>
                                             </div>
@@ -127,6 +67,105 @@ async componentDidMount() {
             )
     }
 
+
+    // const totalPriceCart = new Map();
+    listProductsInCart = new Map();
+
+    productsWithDiscount = ['IPHONE XR 512GB', 'IPHONE XR 256GB', 'IPHONE XR 128GB'];
+
+    newDiscount = (discount) => {
+        return (price) => {
+            return price - price * discount;
+        };
+    };
+
+
+    transformPriceByDiscount = (product) => {
+        return {
+            ...product,
+            price: (this.newDiscount(0.5)(product.price)) // add discount 50%
+        };
+    }
+
+
+    getCatalogWithDiscount = (generalCatalog, productsWithDiscount) => {
+
+        return generalCatalog.map((product) => {
+            if(productsWithDiscount.includes(product.name)){
+                return this.transformPriceByDiscount(product);
+            } else {
+                return product;
+            }
+
+        })
+    }
+
+
+    /**/
+
+
+    deleteToCart = (index) => {
+        if (this.listProductsInCart.has(index) === true) {
+            let productFromCart = this.listProductsInCart.get(index)
+            --productFromCart.count;
+            if (productFromCart.count === 0) {
+                this.listProductsInCart.delete(index)
+            } else {
+                productFromCart.totalPrice = productFromCart.count * productFromCart.price;
+                this.listProductsInCart.set(index, productFromCart);
+            }
+
+
+
+        } else {
+            return this.listProductsInCart
+
+        }
+
+        this.counterCart()
+        console.log(this.listProductsInCart)
+        console.log(this.state.counter)
+
+    }
+
+
+    addToCart = (index) => {
+
+        const catalog = this.getCatalogWithDiscount(products, this.productsWithDiscount);
+        /*const product = catalog[index];*/
+
+        if (this.listProductsInCart.has(index) === true) {
+            let productFromCart = this.listProductsInCart.get(index)
+            ++productFromCart.count;
+            productFromCart.totalPrice = productFromCart.count * productFromCart.price;
+            this.listProductsInCart.set(index, productFromCart);
+
+
+        } else {
+            const product = catalog[index];
+            /*listProductsInCart.price = priceItem;*/
+            ++product.count;
+            product.totalPrice = product.count * product.price;
+            this.listProductsInCart.set(index, product);
+
+
+        }
+
+        this.counterCart()
+        console.log(this.listProductsInCart)
+        console.log(this.state.counter)
+
+    }
+
+    counterCart = () => {
+        let counter = 0;
+        this.listProductsInCart.forEach(value => counter += value.count);
+        this.setState({
+            ...this.state,
+            counter
+        })
+        this.props.updateData(this.state.counter)
+    }
 
 }
 

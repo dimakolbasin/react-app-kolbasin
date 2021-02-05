@@ -2,6 +2,9 @@ import * as React from "react";
 import style from "./header.module.css"
 
 class Header extends React.Component {
+
+
+
     render() {
         return (
             <header className={style.header}>
@@ -26,7 +29,7 @@ class Header extends React.Component {
                                 <a className={style.icon} href="#"><img className={style.imgNav} src="../../assets/img/icon/basket.png" alt="basket"/></a>
                             </div>
                             <div id="body-counter">
-
+                                {this.props.counter ? this.props.counter : ''}
                             </div>
                             <div className={style.header__btn}>
                                 <a className={style.icon} href="#"><img className={style.imgNav} src="../../assets/img/icon/logout.png" alt="logout"/></a>
