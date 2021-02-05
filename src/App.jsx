@@ -19,10 +19,10 @@ class App extends React.Component {
   render() {
         return (
     <div>
-      <Header counter={this.state.counter}></Header>
-      <Navigation></Navigation>
-      <Main updateData={this.updateData}></Main>
-      <Footer></Footer>
+      <Header counter={this.state.counter}/>
+      <Navigation/>
+      <Main updateData={this.updateData}/>
+      <Footer/>
     </div>
   )}
 }
