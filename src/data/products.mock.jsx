@@ -5,7 +5,7 @@ const products = [
         price: 1111,
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
         count: 0,
-        url: '../../../assets/img/img-phone/xsBlack.png'
+        url: '../../assets/img/img-phone/xs%20jet%20black.png'
     },
     {
         id: 1,
@@ -13,7 +13,7 @@ const products = [
         price: 1234,
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
         count: 0,
-        url: '../../../assets/img/img-phone/xsBlack.png'
+        url: '../../assets/img/img-phone/xs%20jet%20black.png'
     },
     {
         id: 2,
@@ -21,7 +21,7 @@ const products = [
         price: 900,
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
         count: 0,
-        url: '../../../assets/img/img-phone/xsBlack.png'
+        url: '../../assets/img/img-phone/xs%20jet%20black.png'
     },
     {
         id: 3,
@@ -29,7 +29,7 @@ const products = [
         price: 799,
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
         count: 0,
-        url: '../../../assets/img/img-phone/xsBlack.png'
+        url: '../../assets/img/img-phone/xs%20jet%20black.png'
     },
     {
         id: 4,
@@ -37,7 +37,7 @@ const products = [
         price: 1000,
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
         count: 0,
-        url: '../../../assets/img/img-phone/xsBlack.png'
+        url: '../../assets/img/img-phone/xs%20jet%20black.png'
     },
     {
         id: 5,
@@ -45,7 +45,7 @@ const products = [
         price: 1300,
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
         count: 0,
-        url: '../../../assets/img/img-phone/xsBlack.png'
+        url: '../../assets/img/img-phone/xs%20jet%20black.png'
     }
 ];
 
