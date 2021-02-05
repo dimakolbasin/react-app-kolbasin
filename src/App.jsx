@@ -8,9 +8,11 @@ import Footer from "./components/footer/footer.component";
 
 class App extends React.Component {
 
-    state = {
-        counter: 0
+    constructor(props) {
+        super(props);
+        this.state = {counter: 0};
     }
+
 
     updateData = (value) => {
         this.setState({ counter: value });

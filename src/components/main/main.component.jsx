@@ -12,8 +12,9 @@ function getProducts() {
 }
 
 class Main extends React.Component {
-    state = {
-        productList: []
+    constructor(props) {
+        super(props);
+        this.state = {productList: []};
     }
 
 async componentDidMount() {
