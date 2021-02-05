@@ -13,7 +13,7 @@ class App extends React.Component {
     }
 
     updateData = (value) => {
-        this.setState({ counter: value })
+        this.setState({ counter: value });
     }
 
   render() {

@@ -11,14 +11,10 @@ function getProducts() {
     })
 }
 
-
 class Main extends React.Component {
     state = {
-        productList: [],
-        counter: 0
+        productList: []
     }
-
-
 
 async componentDidMount() {
        const productList = await getProducts()
@@ -67,10 +63,7 @@ async componentDidMount() {
             )
     }
 
-
-    // const totalPriceCart = new Map();
     listProductsInCart = new Map();
-
     productsWithDiscount = ['IPHONE XR 512GB', 'IPHONE XR 256GB', 'IPHONE XR 128GB'];
 
     newDiscount = (discount) => {
@@ -91,7 +84,7 @@ async componentDidMount() {
     getCatalogWithDiscount = (generalCatalog, productsWithDiscount) => {
 
         return generalCatalog.map((product) => {
-            if(productsWithDiscount.includes(product.name)){
+            if(productsWithDiscount.includes(product.name)) {
                 return this.transformPriceByDiscount(product);
             } else {
                 return product;
@@ -100,42 +93,29 @@ async componentDidMount() {
         })
     }
 
-
-    /**/
-
-
     deleteToCart = (index) => {
         if (this.listProductsInCart.has(index) === true) {
-            let productFromCart = this.listProductsInCart.get(index)
+            let productFromCart = this.listProductsInCart.get(index);
             --productFromCart.count;
             if (productFromCart.count === 0) {
-                this.listProductsInCart.delete(index)
+                this.listProductsInCart.delete(index);
             } else {
                 productFromCart.totalPrice = productFromCart.count * productFromCart.price;
                 this.listProductsInCart.set(index, productFromCart);
             }
-
-
-
         } else {
-            return this.listProductsInCart
-
+            return this.listProductsInCart;
         }
-
         this.counterCart()
-        console.log(this.listProductsInCart)
-        console.log(this.state.counter)
-
     }
 
 
     addToCart = (index) => {
 
         const catalog = this.getCatalogWithDiscount(products, this.productsWithDiscount);
-        /*const product = catalog[index];*/
 
         if (this.listProductsInCart.has(index) === true) {
-            let productFromCart = this.listProductsInCart.get(index)
+            let productFromCart = this.listProductsInCart.get(index);
             ++productFromCart.count;
             productFromCart.totalPrice = productFromCart.count * productFromCart.price;
             this.listProductsInCart.set(index, productFromCart);
@@ -143,7 +123,6 @@ async componentDidMount() {
 
         } else {
             const product = catalog[index];
-            /*listProductsInCart.price = priceItem;*/
             ++product.count;
             product.totalPrice = product.count * product.price;
             this.listProductsInCart.set(index, product);
@@ -151,9 +130,7 @@ async componentDidMount() {
 
         }
 
-        this.counterCart()
-        console.log(this.listProductsInCart)
-        console.log(this.state.counter)
+        this.counterCart();
 
     }
 
@@ -162,12 +139,11 @@ async componentDidMount() {
         this.listProductsInCart.forEach(value => counter += value.count);
         this.setState({
             ...this.state,
-            counter
+            counter: counter
         })
-        this.props.updateData(this.state.counter)
+        this.props.updateData(counter);
     }
 
 }
-
 
 export default Main;
