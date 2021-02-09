@@ -18,81 +18,51 @@ const Main = (props) => {
 
     const productList = async () => {await getProducts().then(result => result)};
 
-    const [product, setProduct] = useState([])
+    const [product, setProduct] = useState([]);
 
     useEffect (() => {
         getProducts().then(response => setProduct(response));
     }, []);
 
 
-    let listProductsInCart = new Map();
 
-    const productsWithDiscount = ['IPHONE XR 512GB', 'IPHONE XR 256GB', 'IPHONE XR 128GB'];
-
-    const newDiscount = (discount) => {
-        return (price) => {
-            return price - price * discount;
-        };
-    };
+    const [cart, SetCart] = useState(new Map());
 
 
-    const transformPriceByDiscount = (product) => {
-        return {
-            ...product,
-            price: (newDiscount(0.5)(product.price)) // add discount 50%
-        };
-    }
-
-
-    const getCatalogWithDiscount = (generalCatalog, productsWithDiscount) => {
-
-        return generalCatalog.map((product) => {
-            if(productsWithDiscount.includes(product.name)) {
-                return transformPriceByDiscount(product);
-            } else {
-                return product;
-            }
-
-        })
-    }
 
     const deleteToCart = (index) => {
-        if (listProductsInCart.has(index) === true) {
-            let productFromCart = listProductsInCart.get(index);
+        if (cart.has(index) === true) {
+            let productFromCart = cart.get(index);
             --productFromCart.count;
             if (productFromCart.count === 0) {
-                listProductsInCart.delete(index);
-                console.log(listProductsInCart)
+                cart.delete(index);
+
             } else {
                 productFromCart.totalPrice = productFromCart.count * productFromCart.price;
-                listProductsInCart.set(index, productFromCart);
-                console.log(listProductsInCart)
+                cart.set(index, productFromCart);
+
             }
         } else {
-            return listProductsInCart;
+            return cart;
 
         }
         counterCart()
     }
 
     const addToCart = (index) => {
-
-        const catalog = getCatalogWithDiscount(products, productsWithDiscount);
-
-        if (listProductsInCart.has(index) === true) {
-            let productFromCart = listProductsInCart.get(index);
+        const catalog = products
+        if (cart.has(index) === true) {
+            let productFromCart = cart.get(index);
             ++productFromCart.count;
             productFromCart.totalPrice = productFromCart.count * productFromCart.price;
-            listProductsInCart.set(index, productFromCart);
-            console.log(listProductsInCart)
+            cart.set(index, productFromCart);
 
 
         } else {
             const product = catalog[index];
             ++product.count;
             product.totalPrice = product.count * product.price;
-            listProductsInCart.set(index, product);
-            console.log(listProductsInCart)
+            cart.set(index, product);
 
 
         }
@@ -105,7 +75,7 @@ const Main = (props) => {
 
     const counterCart = () => {
         let counter = 0;
-        listProductsInCart.forEach(value => counter += value.count);
+        cart.forEach(value => counter += value.count);
         props.updateData(counter);
     }
 

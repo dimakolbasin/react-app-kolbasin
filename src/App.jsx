@@ -8,10 +8,10 @@ import {useEffect, useState} from 'react'
 
 const App = (props) => {
 
-    const [counter, setCounter] = useState(0)
+    const [counter, setCounter] = useState(0);
 
     const updateData = (value) => {
-        setCounter(value)
+        setCounter(value);
     }
 
     return (
