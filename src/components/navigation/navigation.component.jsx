@@ -1,8 +1,7 @@
 import * as React from "react";
 import style from "./navigation.module.css"
 
-class Navigation extends React.Component {
-    render() {
+const Navigation = () => {
         return (
             <nav className={style.navigation}>
                 <ul className={style.navigation__list}>
@@ -45,7 +44,6 @@ class Navigation extends React.Component {
                 </ul>
             </nav>
         )
-    }
 }
 
 export default Navigation;

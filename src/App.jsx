@@ -4,29 +4,24 @@ import Header from "./components/header/header.component";
 import Navigation from "./components/navigation/navigation.component";
 import Main from "./components/main/main.component";
 import Footer from "./components/footer/footer.component";
+import {useEffect, useState} from 'react'
 
+const App = (props) => {
 
-class App extends React.Component {
+    const [counter, setCounter] = useState(0)
 
-    constructor(props) {
-        super(props);
-        this.state = {counter: 0};
+    const updateData = (value) => {
+        setCounter(value)
     }
 
-
-    updateData = (value) => {
-        this.setState({ counter: value });
-    }
-
-  render() {
-        return (
+    return (
     <div>
-      <Header counter={this.state.counter}/>
+      <Header counter={counter}/>
       <Navigation/>
-      <Main updateData={this.updateData}/>
+      <Main updateData={updateData}/>
       <Footer/>
     </div>
-  )}
+  )
 }
 
 export default App;

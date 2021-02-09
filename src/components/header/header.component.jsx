@@ -1,11 +1,11 @@
 import * as React from "react";
 import style from "./header.module.css"
 
-class Header extends React.Component {
+const Header = (props) => {
 
 
 
-    render() {
+
         return (
             <header className={style.header}>
                 <div className={style.container}>
@@ -29,7 +29,7 @@ class Header extends React.Component {
                                 <a className={style.icon} href="#"><img className={style.imgNav} src="../../assets/img/icon/basket.png" alt="basket"/></a>
                             </div>
                             <div id="body-counter">
-                                {this.props.counter ? this.props.counter : ''}
+                                {props.counter ? props.counter : ''}
                             </div>
                             <div className={style.header__btn}>
                                 <a className={style.icon} href="#"><img className={style.imgNav} src="../../assets/img/icon/logout.png" alt="logout"/></a>
@@ -43,7 +43,7 @@ class Header extends React.Component {
                 </div>
             </header>
         )
-    }
+
 }
 
 export default Header;

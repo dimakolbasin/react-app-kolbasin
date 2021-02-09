@@ -1,8 +1,7 @@
 import * as React from "react";
 import style from "./footer.module.css"
 
-class Footer extends React.Component {
-    render() {
+const Footer = () => {
         return (
             <footer>
                 <div className={style.container}>
@@ -19,7 +18,6 @@ class Footer extends React.Component {
                 </div>
             </footer>
         )
-    }
 }
 
 export default Footer;
