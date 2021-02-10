@@ -16,7 +16,7 @@ async function getProducts() {
 
 const Main = (props) => {
 
-    const productList = async () => {await getProducts().then(result => result)};
+
 
     const [product, setProduct] = useState([]);
 
@@ -26,7 +26,7 @@ const Main = (props) => {
 
 
 
-    const [cart, SetCart] = useState(new Map());
+    const [cart, setCart] = useState(new Map());
 
 
 
