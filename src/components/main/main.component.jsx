@@ -1,28 +1,11 @@
 import * as React from "react";
-import products from "../../data/products.mock"
-import style from "./main.module.css"
-import {useEffect, useState} from 'react'
-
-async function getProducts() {
-    return new Promise(resolve => {
-        setTimeout(
-            () => resolve(products),
-            1000
-        )
-    })
-}
-
+import products from "../../data/products.mock";
+import style from "./main.module.css";
+import {useEffect, useState} from 'react';
+import { Link } from 'react-router-dom';
 
 
 const Main = (props) => {
-
-
-
-    const [product, setProduct] = useState([]);
-
-    useEffect (() => {
-        getProducts().then(response => setProduct(response));
-    }, []);
 
 
 
@@ -92,9 +75,11 @@ const Main = (props) => {
                                 <div className={style.staff}>
 
                                     {
-                                        product.map(product => (
+                                        props.product.map(product => (
                                             <div className={style.staff__item}>
-                                                <a href=""><img className={style.staff__icon} src={product.url} alt=""/></a>
+
+                                                <Link to={`/product-details/${product.id}`}><img className={style.staff__icon} src={product.url} alt=""/></Link>
+
                                                 <h4 className={style.staff__title}>${product.name}</h4>
                                                 <h3 className={style.staff__price}>${product.price}</h3>
                                                 <div>

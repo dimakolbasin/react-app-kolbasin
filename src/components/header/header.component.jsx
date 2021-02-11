@@ -1,18 +1,17 @@
 import * as React from "react";
-import style from "./header.module.css"
+import style from "./header.module.css";
+import { Link } from 'react-router-dom';
+
 
 const Header = (props) => {
-
-
-
-
         return (
             <header className={style.header}>
                 <div className={style.container}>
                     <div className={style.header__inner}>
                         <div className={style.header__logo}>
-                            <span><span className={style.header__logo1}>Techno</span><span
-                                className={style.header__logo2}>Point</span></span>
+
+                            <Link to = "/" exact style={{ textDecoration: 'none' }}><span className={style.header__logo1}>Techno</span><span className={style.header__logo2}>Point</span></Link>
+
                         </div>
                         <div className={style.header__nav}>
                             <div className={style.btn_nav}>
@@ -31,13 +30,10 @@ const Header = (props) => {
                             <div id="body-counter">
                                 {props.counter ? props.counter : ''}
                             </div>
-                            <div className={style.header__btn}>
-                                <a className={style.icon} href="#"><img className={style.imgNav} src="../../assets/img/icon/logout.png" alt="logout"/></a>
-                            </div>
+                            <Link to="/login/" className={style.header__btn}>
+                                <div className={style.icon}><img className={style.imgNav} src="../../assets/img/icon/logout.png" alt="logout"/></div>
+                            </Link>
 
-                            <div className={style.header__btn}>
-                                <a className={style.icon} href="#"><img className={style.imgNav} src="../../assets/img/icon/burger.png" alt="logout"/></a>
-                            </div>
                         </div>
                     </div>
                 </div>
