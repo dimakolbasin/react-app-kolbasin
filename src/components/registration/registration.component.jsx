@@ -1,5 +1,5 @@
 import * as React from "react";
-import style from "./loginIn.module.css";
+import style from "./registration.module.css";
 import {useForm} from "react-hook-form";
 import { useHistory } from "react-router-dom";
 
@@ -8,7 +8,7 @@ const EMAIL_REGEX = /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|
 
 
 
-const LoginIn = () => {
+const Registration = () => {
 
     const history = useHistory();
     const { register, handleSubmit, errors } = useForm();
@@ -43,11 +43,11 @@ const LoginIn = () => {
                                 <input
                                     id="password"
                                     name="password"
-                                    type="text"
+                                    type="password"
                                     ref={register({required: true, min: 6})}
                                 />
                                 {errors.password?.type === 'required' && <div>введите пароль</div>}
-                                {errors.password?.type === 'min' && <div>минимальная длина пороля 6 символов</div>}
+                                {errors.password?.type === 'min' && <div>минимальная длина пароля 6 символов</div>}
                             </div>
 
                             <div>
@@ -55,7 +55,7 @@ const LoginIn = () => {
                                 <input
                                     id="email"
                                     name="email"
-                                    type="text"
+                                    type="email"
                                     ref={register({ required: true, pattern: EMAIL_REGEX })}
                                 />
                                 {errors.email?.type === 'required' && <div>Заполните email</div>}
@@ -70,4 +70,4 @@ const LoginIn = () => {
     )
 }
 
-export default LoginIn;
+export default Registration;

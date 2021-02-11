@@ -5,7 +5,7 @@ import Navigation from "./components/navigation/navigation.component";
 import Main from "./components/main/main.component";
 import Footer from "./components/footer/footer.component";
 import ProductDetails from "./components/product-details/product-details.component";
-import LoginIn from "./components/login/loginIn.component"
+import Registration from "./components/registration/registration.component"
 import { useState, useEffect } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import products from "./data/products.mock";
@@ -49,7 +49,7 @@ const App = (props) => {
                 <ProductDetails />
             </Route>
             <Route path= "/login/">
-                <LoginIn/>
+                <Registration/>
             </Route>
             <Route>
                 404 Page not found

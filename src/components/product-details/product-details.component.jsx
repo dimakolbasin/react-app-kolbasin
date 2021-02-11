@@ -22,7 +22,7 @@ const ProductDetails = () => {
                                     <div className={style.staff__item}>
                                         <img className={style.staff__title} src={product.url}/>
                                         <h4 className={style.staff__title}>{product.name}</h4>
-                                        <h3 className={style.staff__price}>${product.price}</h3>
+                                        <h3 className={style.staff__price}>{product.price}$</h3>
                                         <h3 className={style.staff__price}>{product.description}</h3>
                                     </div>
                         </div>

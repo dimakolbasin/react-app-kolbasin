@@ -80,8 +80,8 @@ const Main = (props) => {
 
                                                 <Link to={`/product-details/${product.id}`}><img className={style.staff__icon} src={product.url} alt=""/></Link>
 
-                                                <h4 className={style.staff__title}>${product.name}</h4>
-                                                <h3 className={style.staff__price}>${product.price}</h3>
+                                                <h4 className={style.staff__title}>{product.name}</h4>
+                                                <h3 className={style.staff__price}>{product.price}$</h3>
                                                 <div>
                                                     <button className={style.staff__btnAdd} onClick = {() => addToCart(`${product.id}`)}>
                                                         <img className={style.staff__trashImg} src="../../assets/img/icon/bascket1.png" alt=""/>
