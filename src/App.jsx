@@ -48,7 +48,7 @@ const App = (props) => {
             <Route path= "/product-details/:id">
                 <ProductDetails />
             </Route>
-            <Route path= "/login/">
+            <Route path= "/registration/">
                 <Registration/>
             </Route>
             <Route>

@@ -30,7 +30,7 @@ const Header = (props) => {
                             <div id="body-counter">
                                 {props.counter ? props.counter : ''}
                             </div>
-                            <Link to="/login/" className={style.header__btn}>
+                            <Link to="/registration/" className={style.header__btn}>
                                 <div className={style.icon}><img className={style.imgNav} src="../../assets/img/icon/logout.png" alt="logout"/></div>
                             </Link>
 

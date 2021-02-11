@@ -2,11 +2,17 @@ import * as React from "react";
 import style from "../product-details/product-details.module.css";
 import { useParams } from "react-router-dom";
 import products from "../../data/products.mock";
+import { useHistory } from "react-router-dom";
 
 
 const ProductDetails = () => {
-
     const { id } = useParams();
+
+    const history = useHistory();
+
+    const returnBack = () => {
+        history.push("/");
+    }
 
     const product = products.find(p => p.id === +id);
 
@@ -24,6 +30,7 @@ const ProductDetails = () => {
                                         <h4 className={style.staff__title}>{product.name}</h4>
                                         <h3 className={style.staff__price}>{product.price}$</h3>
                                         <h3 className={style.staff__price}>{product.description}</h3>
+                                        <button style={{height:'50px', width:'100px'}} onClick={returnBack}>назад</button>
                                     </div>
                         </div>
                     </div>
