@@ -1,9 +1,14 @@
 import * as React from "react";
 import style from "./header.module.css";
 import { Link } from 'react-router-dom';
+import {useSelector} from "react-redux";
+import { selectCartCount } from '../../store/cart/cart.selectors';
 
 
 const Header = (props) => {
+
+    const count = useSelector(selectCartCount);
+
         return (
             <header className={style.header}>
                 <div className={style.container}>
@@ -28,7 +33,7 @@ const Header = (props) => {
                                 <a className={style.icon} href="#"><img className={style.imgNav} src="../../assets/img/icon/basket.png" alt="basket"/></a>
                             </div>
                             <div id="body-counter">
-                                {props.counter ? props.counter : ''}
+                                { count ? count : ''}
                             </div>
                             <Link to="/registration/" className={style.header__btn}>
                                 <div className={style.icon}><img className={style.imgNav} src="../../assets/img/icon/logout.png" alt="logout"/></div>

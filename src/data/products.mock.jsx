@@ -4,6 +4,7 @@ const products = [
         name: 'IPHONE XR 512GB',
         price: 1111,
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+        count: 0,
         url: '../../assets/img/img-phone/xs%20jet%20black.png'
     },
     {

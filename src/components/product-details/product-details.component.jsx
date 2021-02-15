@@ -3,6 +3,10 @@ import style from "../product-details/product-details.module.css";
 import { useParams } from "react-router-dom";
 import products from "../../data/products.mock";
 import { useHistory } from "react-router-dom";
+import { useDispatch } from 'react-redux';
+import { addToCart, deleteFromCart } from "../../store/cart/cart.actions";
+
+
 
 
 const ProductDetails = () => {
@@ -13,8 +17,20 @@ const ProductDetails = () => {
     const returnBack = () => {
         history.push("/");
     }
-
     const product = products.find(p => p.id === +id);
+
+
+
+    const dispatch = useDispatch();
+    const handleAdd = (id) => {
+        dispatch(addToCart(id));
+    }
+
+    const handleDelete = (id) => {
+        dispatch(deleteFromCart(id));
+    }
+
+
 
     return (
         <main>
@@ -30,7 +46,9 @@ const ProductDetails = () => {
                                         <h4 className={style.staff__title}>{product.name}</h4>
                                         <h3 className={style.staff__price}>{product.price}$</h3>
                                         <h3 className={style.staff__price}>{product.description}</h3>
-                                        <button style={{height:'50px', width:'100px'}} onClick={returnBack}>назад</button>
+                                        <button type="button" style={{height:'50px', width:'100px'}} onClick = {() => handleAdd(`${product.id}`)}>добавить в корзину</button>
+                                        <button type="button" style={{height:'50px', width:'100px'}} onClick = {() => handleDelete(`${product.id}`)}>удалить из корзины</button>
+                                        <button type="button" style={{height:'50px', width:'100px'}} onClick={returnBack}>назад</button>
                                     </div>
                         </div>
                     </div>
