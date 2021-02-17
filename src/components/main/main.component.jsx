@@ -5,8 +5,10 @@ import {useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import {useDispatch, useSelector} from "react-redux";
 import {addToCart, deleteFromCart} from "../../store/cart/cart.actions";
+import {selectProducts} from "../../store/products/products.selectors";
+import {getProductsReducer} from "../../store/products/products.reducer";
 
-async function getProducts() {
+export async function getProducts() {
     return new Promise(resolve => {
         setTimeout(
             () => resolve(products),
@@ -19,17 +21,12 @@ async function getProducts() {
 
 const Main = (props) => {
 
-    const product = useSelector(state => state.products.products);
+    const product = useSelector(selectProducts);
     const dispatch = useDispatch();
 
 
     useEffect(() => {
-        getProducts().then(products => {
-            dispatch({
-                type: 'setProducts',
-                payload: products
-            })
-        })
+        dispatch(getProductsReducer())
     }, [dispatch])
 
 
