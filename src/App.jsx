@@ -9,7 +9,6 @@ import Registration from "./components/registration/registration.component"
 import { Route, Switch } from 'react-router-dom';
 
 
-
 const App = (props) => {
 
 

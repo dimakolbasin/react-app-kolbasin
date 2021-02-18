@@ -4,9 +4,10 @@ import style from "./main.module.css";
 import {useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import {useDispatch, useSelector} from "react-redux";
-import {addToCart, deleteFromCart} from "../../store/cart/cart.actions";
-import {selectProducts} from "../../store/products/products.selectors";
-import {getProductsReducer} from "../../store/products/products.reducer";
+import {addToCart, deleteFromCart} from "../../store/cart/cart.slice";
+import {selectProducts, loadProducts} from "../../store/products/products.slice";
+
+
 
 export async function getProducts() {
     return new Promise(resolve => {
@@ -24,10 +25,10 @@ const Main = (props) => {
     const product = useSelector(selectProducts);
     const dispatch = useDispatch();
 
-
     useEffect(() => {
-        dispatch(getProductsReducer())
+        dispatch(loadProducts())
     }, [dispatch])
+
 
 
     const handleAdd = (id) => {

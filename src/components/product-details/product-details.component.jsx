@@ -3,13 +3,20 @@ import style from "../product-details/product-details.module.css";
 import { useParams } from "react-router-dom";
 import products from "../../data/products.mock";
 import { useHistory } from "react-router-dom";
-import { useDispatch } from 'react-redux';
-import { addToCart, deleteFromCart } from "../../store/cart/cart.actions";
+import {useDispatch} from "react-redux";
+import { addToCart, deleteFromCart } from "../../store/cart/cart.slice";
+import {useMemo} from "react";
+
 
 
 
 
 const ProductDetails = () => {
+
+    const dispatch = useDispatch();
+
+
+
     const { id } = useParams();
 
     const history = useHistory();
@@ -17,11 +24,12 @@ const ProductDetails = () => {
     const returnBack = () => {
         history.push("/");
     }
-    const product = products.find(p => p.id === +id);
+
+    const product = useMemo(() => products.find(p => p.id === id), [id])
 
 
 
-    const dispatch = useDispatch();
+
     const handleAdd = (id) => {
         dispatch(addToCart(id));
     }

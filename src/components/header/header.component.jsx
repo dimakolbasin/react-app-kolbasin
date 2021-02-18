@@ -2,10 +2,11 @@ import * as React from "react";
 import style from "./header.module.css";
 import { Link } from 'react-router-dom';
 import {useSelector} from "react-redux";
-import { selectCartCount } from '../../store/cart/cart.selectors';
+import { selectCartCount } from '../../store/cart/cart.slice';
 
 
 const Header = (props) => {
+
 
     const count = useSelector(selectCartCount);
 
