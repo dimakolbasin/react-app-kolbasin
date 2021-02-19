@@ -18,16 +18,16 @@ const slice = createSlice({
     },
     extraReducers: (builder) => {
         builder.addCase(loadProducts.pending, (state) => {
-            console.log('pending...')
+            console.log('pending...');
         })
 
         builder.addCase(loadProducts.fulfilled, (state, action) => {
             state.products = action.payload
-            console.log('fulfilled')
+            console.log('fulfilled');
         })
 
         builder.addCase(loadProducts.rejected, (state) => {
-            console.log('rejected')
+            console.log('rejected');
 
         })
     }

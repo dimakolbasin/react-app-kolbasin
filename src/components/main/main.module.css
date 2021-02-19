@@ -64,7 +64,7 @@
     cursor: pointer;
     border: 0;
     padding: 0;
-    margin-right: -5px;
+    margin-right: 10px;
 }
 
 .staff__btnAdd:hover {

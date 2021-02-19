@@ -13,18 +13,21 @@ const slice = createSlice({
     reducers: {
         addToCart(state, action) {
             const catalog = products
-            state.products.push(catalog[action.payload])
+            state.products.push(catalog[action.payload]);
             },
         deleteFromCart(state, action) {
-            state.products = state.products.filter(p => p.id !== action.payload)
+            let arrFilter = state.products.filter(p => p.id === action.payload);
+            state.products = state.products.filter(p => p.id !== action.payload);
+            arrFilter.pop()
+            arrFilter.forEach( items => state.products.push(items))
         }
     }
 })
 
-export const { addToCart, deleteFromCart } = slice.actions
+export const { addToCart, deleteFromCart } = slice.actions;
 
 
-export const cartReducer = slice.reducer
+export const cartReducer = slice.reducer;
 
-export const selectCartProducts = state => state.cart.products
-export const selectCartCount = (state) => selectCartProducts(state).length
+export const selectCartProducts = state => state.cart.products;
+export const selectCartCount = (state) => selectCartProducts(state).length;

@@ -25,7 +25,7 @@ const ProductDetails = () => {
         history.push("/");
     }
 
-    const product = useMemo(() => products.find(p => p.id === id), [id])
+    const product = useMemo(() => products.find(p => p.id === id), [id]);
 
 
 

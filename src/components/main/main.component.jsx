@@ -26,7 +26,7 @@ const Main = (props) => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(loadProducts())
+        dispatch(loadProducts());
     }, [dispatch])
 
 
